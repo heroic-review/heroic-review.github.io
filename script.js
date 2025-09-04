@@ -21,7 +21,7 @@ const postsContainer = document.getElementById("postsContainer");
 // โหลดโพสต์ทั้งหมด
 async function loadPosts() {
   postsContainer.innerHTML = "";
-  const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
+  const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
   const snapshot = await getDocs(q);
 
   snapshot.forEach((doc) => {
@@ -32,7 +32,7 @@ async function loadPosts() {
     div.innerHTML = `
       <h3>${data.title}</h3>
       <p>${data.content}</p>
-      <small>โพสต์เมื่อ: ${data.timestamp?.toDate().toLocaleString() || "N/A"}</small>
+      <small>โพสต์เมื่อ: ${data.createdAt?.toDate().toLocaleString() || "N/A"}</small>
       <div class="comment-section">
         <h4>คอมเมนต์</h4>
         <div id="comments-${doc.id}"></div>
@@ -56,7 +56,7 @@ async function loadPosts() {
       if(text){
         await addDoc(collection(db, "posts", postId, "comments"), {
           text,
-          timestamp: serverTimestamp()
+          createdAt: serverTimestamp()
         });
         form.reset();
         loadComments(postId);
