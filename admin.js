@@ -59,7 +59,7 @@ postForm.addEventListener("submit", async (e) => {
     await addDoc(collection(db, "posts"), {
       title,
       content,
-      timestamp: serverTimestamp()
+      createdAt: serverTimestamp()
     });
     postForm.reset();
     loadPosts();
@@ -69,7 +69,7 @@ postForm.addEventListener("submit", async (e) => {
 // โหลดโพสต์สำหรับ Admin
 async function loadPosts(){
   adminPostsContainer.innerHTML = "";
-  const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
+  const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
   const snapshot = await getDocs(q);
 
   snapshot.forEach((docItem) => {
