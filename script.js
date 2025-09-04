@@ -7,7 +7,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyDaRh7fUTczSuP1_mIjKp-oikVxw1o42ZQ",
   authDomain: "foodie-blog-daf41.firebaseapp.com",
   projectId: "foodie-blog-daf41",
-  storageBucket: "foodie-blog-daf41.firebasestorage.app",
+  storageBucket: "foodie-blog-daf41.appspot.com",
   messagingSenderId: "158336610558",
   appId: "1:158336610558:web:772ff0229b361f36c275af",
   measurementId: "G-KDBVD5FTBS"
@@ -29,8 +29,17 @@ async function loadPosts() {
     const div = document.createElement("div");
     div.classList.add("review-card");
 
+    // เพิ่มส่วนแสดงรูปภาพ
+    let imagesHtml = "";
+    if (data.images && Array.isArray(data.images) && data.images.length > 0) {
+      imagesHtml = `<div style="display:flex;gap:8px;margin-bottom:8px;">` +
+        data.images.map(url => `<img src="${url}" style="max-width:120px;border-radius:8px;">`).join("") +
+        `</div>`;
+    }
+
     div.innerHTML = `
       <h3>${data.title}</h3>
+      ${imagesHtml}
       <p>${data.content}</p>
       <small>โพสต์เมื่อ: ${data.createdAt?.toDate().toLocaleString() || "N/A"}</small>
       <div class="comment-section">
