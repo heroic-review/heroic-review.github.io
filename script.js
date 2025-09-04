@@ -69,7 +69,7 @@ async function loadPosts() {
 async function loadComments(postId){
   const container = document.getElementById(`comments-${postId}`);
   container.innerHTML = "";
-  const q = query(collection(db, "posts", postId, "comments"), orderBy("timestamp", "desc"));
+  const q = query(collection(db, "posts", postId, "comments"), orderBy("createdAt", "desc"));
   const snapshot = await getDocs(q);
   snapshot.forEach(doc => {
     const data = doc.data();
