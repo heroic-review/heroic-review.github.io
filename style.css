@@ -1,0 +1,67 @@
+body {
+  font-family: "Prompt", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fefcf7;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  background: #f7c232;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+main {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.review-form, .review-list {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.review-form h2, .review-list h2 {
+  margin-bottom: 10px;
+}
+
+form input, form textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+form button {
+  background: #1f224e;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #15183a;
+}
+
+.review-card {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.review-card h3 {
+  margin: 0;
+  color: #f7c232;
+}

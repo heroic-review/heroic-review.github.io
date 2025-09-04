@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Foodie Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🔑 Admin Dashboard</h1>
+    <button id="logoutBtn">ออกจากระบบ</button>
+  </header>
+
+  <main>
+    <section class="login-section" id="loginSection">
+      <h2>เข้าสู่ระบบแอดมิน</h2>
+      <button id="loginGoogleBtn">Login ด้วย Google</button>
+    </section>
+
+    <section class="admin-section" id="adminSection" style="display:none;">
+      <h2>สร้างโพสต์ใหม่</h2>
+      <form id="postForm">
+        <input type="text" id="postTitle" placeholder="ชื่อร้านอาหาร" required>
+        <textarea id="postContent" placeholder="รายละเอียดรีวิว" required></textarea>
+        <button type="submit">โพสต์</button>
+      </form>
+
+      <h2>โพสต์ทั้งหมด</h2>
+      <div id="adminPostsContainer"></div>
+    </section>
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
