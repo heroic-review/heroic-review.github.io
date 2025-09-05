@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foodie Blog - รีวิวร้านอาหาร</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Blog - รีวิวร้านอาหาร</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
-  <header>
-    <h1>🍜 Foodie Blog</h1>
-    <p>อ่านรีวิวร้านอาหารจากแอดมิน</p>
-  </header>
+    <header>
+        <h1>🍜 Foodie Blog</h1>
+        <p>อ่านรีวิวร้านอาหารจากแอดมิน : ฮีโร่โกโก้ 5 บาท</p>
+    </header>
 
-  <main>
-    <section class="post-list">
-      <h2>โพสต์ล่าสุด</h2>
-      <div id="postsContainer"></div>
-    </section>
-  </main>
+    <main>
+        <section class="post-list">
+            <h2>โพสต์ล่าสุด</h2>
+            <div id="postsContainer"></div>
+        </section>
+    </main>
 
-  <footer>
-    <p>© 2025 Foodie Blog by คุณป๋อง</p>
-  </footer>
+    <footer>
+        <p>© 2025 Foodie Blog by p.spn_</p>
+    </footer>
 
-  <script type="module" src="script.js"></script>
+    <script type="module" src="script.js"></script>
+    <script>
+        document.addEventListener("click", function (e) {
+            if (e.target.classList.contains("read-more")) {
+                const card = e.target.closest(".review-card"); // หา parent card
+                const pre = card.querySelector("pre");         // หา pre ใน card นั้น
+                pre.classList.toggle("expanded");
+
+                if (pre.classList.contains("expanded")) {
+                    e.target.textContent = "ย่อ ▲";
+                } else {
+                    e.target.textContent = "อ่านเพิ่มเติม ▼";
+                }
+            }
+        });
+
+
+    </script>
 </body>
+
 </html>

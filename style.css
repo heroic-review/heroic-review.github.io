@@ -1,67 +1,281 @@
+/* ========= GLOBAL ========= */
 body {
-  font-family: "Prompt", sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #fefcf7;
-  color: #333;
+    font-family: "Prompt", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+    color: #333;
+    line-height: 1.7;
 }
 
+h1,
+h2,
+h3 {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ========= HEADER ========= */
 header {
-  text-align: center;
-  background: #f7c232;
-  padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #f7c232, #ffda68);
+    padding: 30px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 header h1 {
-  margin: 0;
-  font-size: 2rem;
+    margin: 0;
+    font-size: 2.6rem;
+    color: #1f224e;
 }
 
+header p {
+    margin: 10px 0 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ========= MAIN CONTENT ========= */
 main {
-  max-width: 700px;
-  margin: 20px auto;
-  padding: 0 15px;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-.review-form, .review-list {
-  background: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* Section Title */
+.post-list h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #1f224e;
+    border-left: 6px solid #f7c232;
+    padding-left: 12px;
 }
 
-.review-form h2, .review-list h2 {
-  margin-bottom: 10px;
-}
-
-form input, form textarea {
-  width: 100%;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-form button {
-  background: #1f224e;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background: #15183a;
-}
-
+/* ========= REVIEW CARD ========= */
 .review-card {
-  border-bottom: 1px solid #eee;
-  padding: 10px 0;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    padding: 25px;
+    margin-bottom: 25px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border-bottom: 3px solid #f7c232;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .review-card h3 {
+    margin: 0 0 12px;
+    color: #f7c232;
+    font-size: 1.7rem;
+}
+
+/* รีวิวข้อความ */
+.review-card pre {
+    background: #fdfdfd;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #444;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    border: 1px solid #eee;
+
+    max-height: 7.5em;
+    /* แสดงประมาณ 4 บรรทัด */
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.4s ease;
+}
+
+.review-card pre.expanded {
+    max-height: none;
+    /* ขยายเต็ม */
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 8px;
+    color: #1f224e;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* ========= IMAGE SLIDES ========= */
+.img-slides {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
+    margin: 15px 0;
+}
+
+.img-slides img {
+    max-width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.img-slides img:hover {
+    transform: scale(1.05);
+}
+
+/* ========= FOOTER ========= */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    background: #1f224e;
+    color: #fff;
+    margin-top: 50px;
+    border-top: 4px solid #f7c232;
+}
+
+/* ========= COMMENT SECTION ========= */
+.comment-section {
+  background: #f9f9f9;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.comment-section .comments {
+  padding-left: 2rem;
+}
+
+.comment-section h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #1f224e;
+  font-size: 1.1rem;
+  border-left: 4px solid #f7c232;
+  padding-left: 8px;
+}
+
+.comment-section p {
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  display: block;
+  width: fit-content;      /* พอดีกับข้อความ */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.comment-item p {
   margin: 0;
-  color: #f7c232;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.commentForm {
+  display: flex;
+  flex-wrap: wrap; /* ให้บรรทัดใหม่เมื่อแคบ */
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.commentForm input {
+  flex: 1 1 70%; /* ขยายเต็มพื้นที่ที่เหลือ */
+  min-width: 150px; /* ป้องกันเล็กเกินไป */
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+.commentForm button {
+  flex: 0 0 auto; /* ไม่ขยาย */
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  background: #1f224e;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.commentForm button:hover {
+  background: #15183a;
+}
+
+/* Scroll bar สวยขึ้น สำหรับมือถือ/desktop */
+.comment-section {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 300px; /* ถ้ามีคอมเมนต์เยอะ */
+}
+
+.comment-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.comment-section::-webkit-scrollbar-thumb {
+  background-color: rgba(31,34,78,0.3);
+  border-radius: 3px;
+}
+
+
+/* สำหรับมือถือที่แคบ */
+@media (max-width: 480px) {
+  .commentForm {
+    flex-wrap: wrap;       /* ให้ขึ้นบรรทัดใหม่ถ้าต้องการ */
+    gap: 8px;
+  }
+
+  .commentForm input {
+    flex: 1 1 auto;        /* ขยายเต็มพื้นที่ที่เหลือ */
+    min-width: 0;           /* ป้องกัน input เล็กเกินไป */
+  }
+
+  .commentForm button {
+    flex: 0 0 auto;        /* ไม่ขยาย */
+    width: auto;            /* ขนาดพอดีกับปุ่ม */
+    align-self: flex-start; /* ชิดด้านบน/ซ้าย */
+    padding: 8px 12px;      /* เล็กลงจากเดิม */
+    font-size: 0.9rem;      /* ตัวอักษรเล็กลง */
+  }
+  .comment-section .comments {
+  padding-left: 0.8rem;
+}
+}
+
+.avatar-comment {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.10);
+  object-fit: cover;
 }
