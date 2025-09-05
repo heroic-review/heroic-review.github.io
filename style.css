@@ -249,21 +249,21 @@ footer {
 /* สำหรับมือถือที่แคบ */
 @media (max-width: 480px) {
   .commentForm {
-    flex-wrap: wrap;       /* ให้ขึ้นบรรทัดใหม่ถ้าต้องการ */
+    flex-wrap: wrap;  
     gap: 8px;
   }
 
   .commentForm input {
-    flex: 1 1 auto;        /* ขยายเต็มพื้นที่ที่เหลือ */
-    min-width: 0;           /* ป้องกัน input เล็กเกินไป */
+    flex: 1 1 auto;    
+    min-width: 0;   
   }
 
   .commentForm button {
-    flex: 0 0 auto;        /* ไม่ขยาย */
-    width: auto;            /* ขนาดพอดีกับปุ่ม */
-    align-self: flex-start; /* ชิดด้านบน/ซ้าย */
-    padding: 8px 12px;      /* เล็กลงจากเดิม */
-    font-size: 0.9rem;      /* ตัวอักษรเล็กลง */
+    flex: 0 0 auto;     
+    width: auto;          
+    align-self: flex-start;
+    padding: 8px 12px;    
+    font-size: 0.9rem;      
   }
   .comment-section .comments {
   padding-left: 0.8rem;
